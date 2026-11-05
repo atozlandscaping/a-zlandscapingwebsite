@@ -1,4 +1,4 @@
-modules = ["python-3.11"]
+modules = ["web", "nodejs-20"]
 run = "python3 -m http.server 8000 --directory public"
 
 [[ports]]
@@ -8,3 +8,6 @@ externalPort = 80
 [deployment]
 deploymentTarget = "static"
 publicDir = "public"
+
+[nix]
+channel = "stable-25_05"
