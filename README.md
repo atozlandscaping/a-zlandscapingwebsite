@@ -9,8 +9,8 @@ public/            ← everything that goes live
   index.html       ← the main page (all sections)
   thanks.html      ← page shown after someone sends the quote form
   styles.css       ← colors, fonts, layout (brand colors at the top)
-  main.js          ← mobile menu, project photo gallery, form redirect
-  assets/          ← logo, favicon, and gallery/ for project photos
+  main.js          ← mobile menu, before & after projects, form redirect
+  assets/          ← logo, favicon, and work/ for project photos
 .replit            ← tells Replit how to preview and deploy
 ```
 
@@ -31,7 +31,11 @@ Avoid editing the same files in Replit at the same time, or the two copies can c
 The form sends submissions to atozlandscapingco1@gmail.com through FormSubmit (formsubmit.co, free).
 **The very first time the form is used, FormSubmit emails that inbox a confirmation link — click it once to activate.**
 
-## Adding project photos
+## Adding before & after projects
 
-Put photos in `public/assets/gallery/` and list them in the `GALLERY` array at the top of `public/main.js`.
-The "Recent work" section appears automatically once at least one photo is listed.
+1. Put the two photos in `public/assets/work/` named `<slug>-before.webp` and `<slug>-after.webp`
+   (3:4 portrait, about 600×800, works best).
+2. Add an entry to the `PROJECTS` list at the top of `public/main.js`.
+   - `mode: "slider"`: drag handle. Use when both photos are from the same spot and angle.
+   - `mode: "toggle"`: Before / After buttons. Use when the angles differ.
+   - `category`: `hardscape`, `lawn` or `grading` (matches the filter buttons).

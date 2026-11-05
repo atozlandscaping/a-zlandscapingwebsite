@@ -46,6 +46,7 @@
       <nav class="nav" id="nav" aria-label="Main">
         <a href="#services">Services</a>
         <a href="#wildfire">Wildfire Mitigation</a>
+        <a href="#work">Our Work</a>
         <a href="#about">About</a>
         <a href="#area">Service Area</a>
         <a href="#contact" class="nav-cta">Get a Quote</a>
@@ -212,14 +213,33 @@
       </div>
     </section>
 
-    <!-- GALLERY (shows automatically once photos are added in main.js) -->
-    <section class="section" id="work" hidden>
+    <!-- OUR WORK — projects are listed in main.js (PROJECTS) -->
+    <section class="section work" id="work">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Recent work</p>
-          <h2>Projects around the county</h2>
+          <p class="eyebrow">Our work</p>
+          <h2>Before &amp; after</h2>
+          <p>Real projects from around Summit County, designed and built by our crew. Drag the handle or tap Before / After to see the difference.</p>
         </div>
-        <div class="gallery" id="gallery"></div>
+
+        <figure class="work-feature">
+          <img src="assets/work/entry-garden-beds.webp" alt="Front entry garden beds with mulch, river rock and new plantings at a mountain home" width="1400" height="1181" loading="lazy">
+          <figcaption><span>Featured</span>Entry garden beds &amp; plantings</figcaption>
+        </figure>
+
+        <div class="work-filters" role="group" aria-label="Filter projects">
+          <button type="button" class="chip active" data-filter="all">All projects</button>
+          <button type="button" class="chip" data-filter="hardscape">Hardscapes</button>
+          <button type="button" class="chip" data-filter="lawn">Lawn &amp; revegetation</button>
+          <button type="button" class="chip" data-filter="grading">Grading &amp; drainage</button>
+        </div>
+
+        <div class="work-grid" id="work-grid"></div>
+
+        <div class="work-cta">
+          <p>Have a project like these?</p>
+          <a class="btn btn-primary" href="#contact">Request a Quote</a>
+        </div>
       </div>
     </section>
 
