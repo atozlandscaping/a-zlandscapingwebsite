@@ -10,6 +10,8 @@
 const PROJECTS = [
   { slug: "10-flagstone-patio", title: "Under-Deck Flagstone Patio", mode: "slider",
     text: "Gravel and an old fence gate cleared out and replaced with a flagstone patio running from the door under the deck." },
+  { slug: "11-brush-pile", title: "Brush Pile Removal", mode: "slider",
+    text: "A large pile of slash and dead branches cleared and hauled away the same day, leaving a clean berm." },
   { slug: "08-stone-wall-walk", title: "Stone Wall Walkway Rebuild", mode: "slider",
     text: "Weedy, uneven pavers pulled up and relaid as a tight, level flagstone walkway." },
   { slug: "09-gazebo-path", title: "Gazebo Path Replacement", mode: "slider",
