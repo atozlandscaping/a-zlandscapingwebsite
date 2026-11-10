@@ -48,38 +48,59 @@ const PROJECTS = [
     );
   }
 
-  // Show the floating call button on phones once the hero is scrolled past
-  const call = document.querySelector(".mobile-call");
-  if (call) {
-    const onScroll = () => call.classList.toggle("show", window.scrollY > 520);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
-
-  // Highlight the tab / menu link for the section currently on screen
+  // ----------------------------------------------------------
+  // PAGES — only one section shows at a time.
+  // Each page has its own link (e.g. yoursite.com/#work), and the
+  // browser Back button works.
+  // ----------------------------------------------------------
+  const PAGES = {
+    home: "A-Z Landscaping | Summit County, CO Landscaping, Tree Work & Wildfire Mitigation",
+    services: "Services | A-Z Landscaping",
+    wildfire: "Wildfire Mitigation | A-Z Landscaping",
+    work: "Our Work | A-Z Landscaping",
+    about: "About Us | A-Z Landscaping",
+    area: "Service Area | A-Z Landscaping",
+    contact: "Request a Quote | A-Z Landscaping",
+  };
+  const views = document.querySelectorAll("[data-view]");
   const tabLinks = document.querySelectorAll("[data-tab]");
-  const sectionIds = ["top", "services", "wildfire", "work", "about", "area", "contact"];
   const track = document.querySelector(".tabs-track");
-  let current = "";
-  const spy = () => {
-    const line = window.scrollY + window.innerHeight * 0.35;
-    let active = "top";
-    sectionIds.forEach((id) => {
-      const el = id === "top" ? null : document.getElementById(id);
-      if (el && el.offsetTop <= line) active = id;
-    });
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) active = "contact";
-    if (active === current) return;
-    current = active;
-    tabLinks.forEach((a) => a.classList.toggle("active", a.dataset.tab === active));
-    const tab = track && track.querySelector(`[data-tab="${active}"]`);
+  const call = document.querySelector(".mobile-call");
+  let page = "home";
+
+  const updateCall = () => {
+    if (call) call.classList.toggle("show", page !== "home" || window.scrollY > 520);
+  };
+
+  const show = (name, scroll) => {
+    page = PAGES[name] ? name : "home";
+    views.forEach((v) => { v.hidden = v.dataset.view !== page; });
+    tabLinks.forEach((a) => a.classList.toggle("active", a.dataset.tab === page));
+    document.title = PAGES[page];
+    const tab = track && track.querySelector(`[data-tab="${page}"]`);
     if (tab && track.scrollWidth > track.clientWidth) {
       track.scrollTo({ left: tab.offsetLeft - (track.clientWidth - tab.offsetWidth) / 2, behavior: "smooth" });
     }
+    if (scroll) window.scrollTo(0, 0);
+    updateCall();
   };
-  window.addEventListener("scroll", spy, { passive: true });
-  window.addEventListener("resize", spy);
-  spy();
+
+  const fromHash = () => (location.hash || "#home").slice(1);
+
+  // Clicking any in-site link switches pages without jumping down the page
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const name = link.getAttribute("href").slice(1);
+    if (!PAGES[name]) return;
+    e.preventDefault();
+    if (name !== page) history.pushState(null, "", "#" + name);
+    show(name, true);
+  });
+  window.addEventListener("popstate", () => show(fromHash(), true));
+  window.addEventListener("hashchange", () => show(fromHash(), true));
+  window.addEventListener("scroll", updateCall, { passive: true });
+  show(fromHash(), true);
 
   // Footer year
   const year = document.getElementById("year");

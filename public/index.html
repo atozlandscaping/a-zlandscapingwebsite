@@ -39,13 +39,14 @@
 
   <header class="site-header" id="top">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="A-Z Landscaping home">
+      <a class="brand" href="#home" aria-label="A-Z Landscaping home">
         <img src="assets/logo-mark.png" alt="" width="104" height="43">
         <span class="brand-text">A-Z <span>Landscaping</span></span>
       </a>
       <nav class="nav" id="nav" aria-label="Main">
+        <a href="#home" data-tab="home">Home</a>
         <a href="#services" data-tab="services">Services</a>
-        <a href="#wildfire" data-tab="wildfire">Wildfire Mitigation</a>
+        <a href="#wildfire" data-tab="wildfire">Wildfire</a>
         <a href="#work" data-tab="work">Our Work</a>
         <a href="#about" data-tab="about">About</a>
         <a href="#area" data-tab="area">Service Area</a>
@@ -58,7 +59,7 @@
     </div>
     <nav class="tabs" aria-label="Page sections">
       <div class="tabs-track">
-        <a href="#top" data-tab="top">Home</a>
+        <a href="#home" data-tab="home">Home</a>
         <a href="#services" data-tab="services">Services</a>
         <a href="#wildfire" data-tab="wildfire">Wildfire</a>
         <a href="#work" data-tab="work">Our Work</a>
@@ -71,7 +72,7 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" data-view="home">
       <div class="wrap hero-inner">
         <p class="eyebrow">Summit County, Colorado · Since 2023</p>
         <h1>Mountain yards,<br>handled from A&nbsp;to&nbsp;Z.</h1>
@@ -95,7 +96,7 @@
     </section>
 
     <!-- QUICK STRIP -->
-    <section class="strip">
+    <section class="strip" data-view="home">
       <div class="wrap strip-inner">
         <div><strong>Brother-owned</strong><span>Aidan &amp; Brendan Collins</span></div>
         <div><strong>Local crew</strong><span>Based in Summit County</span></div>
@@ -103,8 +104,50 @@
       </div>
     </section>
 
+    <!-- HOME: quick links to each page -->
+    <section class="section home-links" data-view="home">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Explore</p>
+          <h2>How we can help</h2>
+        </div>
+        <div class="tiles">
+          <a class="tile" href="#services">
+            <span class="tile-title">Services</span>
+            <span class="tile-sub">Lawn care, cleanups, tree work, hardscapes, plus painting, moving, junk removal &amp; handy fixes.</span>
+            <span class="tile-go">See services →</span>
+          </a>
+          <a class="tile" href="#wildfire">
+            <span class="tile-title">Wildfire Mitigation</span>
+            <span class="tile-sub">Rock, stone and xeroscape designs that make your property safer and look great.</span>
+            <span class="tile-go">Learn more →</span>
+          </a>
+          <a class="tile tile-photo" href="#work" style="--img: url('assets/work/08-stone-wall-walk-after.webp')">
+            <span class="tile-title">Our Work</span>
+            <span class="tile-sub">Before &amp; after photos from projects around Summit County.</span>
+            <span class="tile-go">View projects →</span>
+          </a>
+          <a class="tile" href="#about">
+            <span class="tile-title">About Us</span>
+            <span class="tile-sub">Brothers Aidan &amp; Brendan Collins, serving the high country since 2023.</span>
+            <span class="tile-go">Meet us →</span>
+          </a>
+          <a class="tile" href="#area">
+            <span class="tile-title">Service Area</span>
+            <span class="tile-sub">Dillon, Breckenridge, Frisco, Silverthorne, Keystone, plus Boulder &amp; Evergreen.</span>
+            <span class="tile-go">See where we work →</span>
+          </a>
+          <a class="tile tile-cta" href="#contact">
+            <span class="tile-title">Get a Quote</span>
+            <span class="tile-sub">Tell us about your project and we'll get back to you.</span>
+            <span class="tile-go">Request a quote →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- SERVICES -->
-    <section class="section" id="services">
+    <section data-view="services" class="section" id="services">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">What we do</p>
@@ -183,7 +226,7 @@
     </section>
 
     <!-- WILDFIRE -->
-    <section class="section wildfire" id="wildfire">
+    <section data-view="wildfire" class="section wildfire" id="wildfire">
       <div class="wrap wildfire-inner">
         <div class="wildfire-copy">
           <p class="eyebrow">Our specialty</p>
@@ -230,7 +273,7 @@
     </section>
 
     <!-- OUR WORK — projects are listed in main.js (PROJECTS) -->
-    <section class="section work" id="work">
+    <section data-view="work" class="section work" id="work">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Our work</p>
@@ -260,7 +303,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="section about" id="about">
+    <section data-view="about" class="section about" id="about">
       <div class="wrap about-inner">
         <div class="about-logo">
           <img src="assets/logo-full.png" alt="A-Z Landscaping logo" width="450" height="246">
@@ -276,7 +319,7 @@
     </section>
 
     <!-- SERVICE AREA -->
-    <section class="section area" id="area">
+    <section data-view="area" class="section area" id="area">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Where we work</p>
@@ -307,7 +350,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section contact" id="contact">
+    <section data-view="contact" class="section contact" id="contact">
       <div class="wrap contact-inner">
         <div class="contact-copy">
           <p class="eyebrow">Get in touch</p>
@@ -392,7 +435,7 @@
     </div>
     <div class="wrap footer-bottom">
       <span>© <span id="year">2026</span> A-Z Landscaping. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <a href="#home">Home</a>
     </div>
   </footer>
 

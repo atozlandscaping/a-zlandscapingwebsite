@@ -6,13 +6,19 @@ Public website for A-Z Landscaping (Summit County, CO). Plain HTML/CSS/JS — no
 
 ```
 public/            ← everything that goes live
-  index.html       ← the main page (all sections)
+  index.html       ← all pages live in this one file; only one shows at a time
   thanks.html      ← page shown after someone sends the quote form
   styles.css       ← colors, fonts, layout (brand colors at the top)
   main.js          ← mobile menu, before & after projects, form redirect
   assets/          ← logo, favicon, and work/ for project photos
 .replit            ← tells Replit how to preview and deploy
 ```
+
+## Pages
+
+Each section is its own page: Home, Services, Wildfire, Our Work, About, Service Area, Contact.
+Each one has its own link, e.g. `yoursite.com/#work` or `yoursite.com/#contact`, and the browser Back button works.
+Page titles are set in the `PAGES` list in `public/main.js`.
 
 ## Hosting on Replit
 
