@@ -6,6 +6,7 @@
 //   mode: "slider" = drag handle to wipe between photos (best when both photos
 //                    are taken from the same spot and angle)
 //         "toggle" = tap Before / After buttons (best when the angles differ)
+//         "photo"  = a single finished photo, saved as <slug>.webp
 // ----------------------------------------------------------
 const PROJECTS = [
   { slug: "10-flagstone-patio", title: "Under-Deck Flagstone Patio", mode: "slider",
@@ -16,6 +17,9 @@ const PROJECTS = [
     text: "An overgrown bed by the entry stairs cut back, weeded and finished with fresh mulch inside the rock border." },
   { slug: "13-shrub-pruning", title: "Shrub Pruning & Bed Cleanup", mode: "slider",
     text: "Overgrown shrubs along the patio pruned into shape, beds weeded and fresh mulch laid." },
+  { slug: "14-patio-planters", title: "Patio Planter Design", mode: "photo",
+    alt: "Long black planter filled with dahlias, red and yellow flowers and silver dusty miller beside an outdoor dining patio",
+    text: "Layered summer planters, from dahlias to silvery dusty miller, lining an outdoor dining patio." },
   { slug: "08-stone-wall-walk", title: "Stone Wall Walkway Rebuild", mode: "slider",
     text: "Weedy, uneven pavers pulled up and relaid as a tight, level flagstone walkway." },
   { slug: "09-gazebo-path", title: "Gazebo Path Replacement", mode: "slider",
@@ -171,6 +175,10 @@ const PROJECTS = [
 
       const frame = document.createElement("div");
       frame.className = `ba ba-${p.mode}`;
+      if (p.mode === "photo") {
+        // Single finished-work photo: no slider, no Before/After labels
+        frame.innerHTML = `<img class="ba-after" src="assets/work/${p.slug}.webp" alt="${p.alt || p.title}" width="600" height="800" loading="lazy">`;
+      } else {
       frame.innerHTML = `
         <img class="ba-after" src="${after}" alt="${p.title} — after" width="600" height="800" loading="lazy">
         <img class="ba-before" src="${before}" alt="${p.title} — before" width="600" height="800" loading="lazy">
@@ -196,6 +204,7 @@ const PROJECTS = [
             frame.querySelectorAll(".ba-switch button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
           })
         );
+      }
       }
 
       const body = document.createElement("div");
