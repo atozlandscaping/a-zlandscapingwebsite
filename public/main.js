@@ -69,7 +69,8 @@ const PROJECTS = [
   let page = "home";
 
   const updateCall = () => {
-    if (call) call.classList.toggle("show", page !== "home" || window.scrollY > 520);
+    // Hidden on the quote page so it never covers the form
+    if (call) call.classList.toggle("show", page !== "contact" && (page !== "home" || window.scrollY > 520));
   };
 
   // Work out which page a link points to. A link can also point to a spot
