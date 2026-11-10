@@ -318,11 +318,10 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 /* Apparel */
 .apparel-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
 .product { background: var(--snow); border-radius: 20px; overflow: hidden; }
-.product-photo { display: grid; place-items: center; padding: 40px 24px; background: radial-gradient(circle at 50% 40%, #fff, var(--snow) 70%); }
-.tee { width: min(100%, 360px); height: auto; filter: drop-shadow(0 10px 18px rgba(31,42,28,.18)); }
-.tee-body { fill: #fff; stroke: var(--line); stroke-width: 3; stroke-linejoin: round; }
-.tee-collar { fill: none; stroke: var(--line); stroke-width: 6; stroke-linecap: round; }
-.tee-word { font: 700 20px var(--body); letter-spacing: .14em; fill: var(--forest); }
+.product-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
+.product-photos figure { position: relative; margin: 0; border-radius: 14px; overflow: hidden; background: #e9e7df; }
+.product-photos img { width: 100%; aspect-ratio: 720 / 1070; object-fit: cover; display: block; }
+.product-photos figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.94); color: var(--forest-deep); font-weight: 700; font-size: .78rem; padding: 5px 10px; border-radius: 999px; }
 .product-info { padding: 24px 28px 28px; }
 .product-title { font-size: 1.6rem; }
 .product-sub { color: var(--muted); }
