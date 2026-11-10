@@ -6,26 +6,25 @@
 //   mode: "slider" = drag handle to wipe between photos (best when both photos
 //                    are taken from the same spot and angle)
 //         "toggle" = tap Before / After buttons (best when the angles differ)
-//   category: "hardscape" | "lawn" | "grading"  (matches the filter buttons)
 // ----------------------------------------------------------
 const PROJECTS = [
-  { slug: "08-stone-wall-walk", title: "Stone Wall Walkway Rebuild", category: "hardscape", mode: "slider",
+  { slug: "08-stone-wall-walk", title: "Stone Wall Walkway Rebuild", mode: "slider",
     text: "Weedy, uneven pavers pulled up and relaid as a tight, level flagstone walkway." },
-  { slug: "09-gazebo-path", title: "Gazebo Path Replacement", category: "hardscape", mode: "slider",
+  { slug: "09-gazebo-path", title: "Gazebo Path Replacement", mode: "slider",
     text: "An old brick path replaced with natural flagstone set in a river rock border." },
-  { slug: "01-stone-stairs", title: "Natural Stone Hillside Stairs", category: "hardscape", mode: "slider",
+  { slug: "01-stone-stairs", title: "Natural Stone Hillside Stairs", mode: "slider",
     text: "A worn timber staircase replaced with sandstone steps set into the hillside, plus fresh soil and plantings." },
-  { slug: "07-aspen-path", title: "Aspen Grove Pathway", category: "hardscape", mode: "slider",
+  { slug: "07-aspen-path", title: "Aspen Grove Pathway", mode: "slider",
     text: "A flagstone path and rock beds winding through the aspens along the house." },
-  { slug: "06-deck-walkway", title: "Deck Entry Walkway", category: "hardscape", mode: "slider",
+  { slug: "06-deck-walkway", title: "Deck Entry Walkway", mode: "slider",
     text: "Gravel around the deck and a curving flagstone walkway leading to the entry stairs." },
-  { slug: "05-flagstone-path", title: "Flagstone Path & Gravel Border", category: "hardscape", mode: "slider",
+  { slug: "05-flagstone-path", title: "Flagstone Path & Gravel Border", mode: "slider",
     text: "Overgrown grass and debris replaced with a gravel border and flagstone path along the house." },
-  { slug: "04-grading-swale", title: "Grading & Drainage Swale", category: "grading", mode: "slider",
+  { slug: "04-grading-swale", title: "Grading & Drainage Swale", mode: "slider",
     text: "The lot regraded with a gravel swale to carry water away from the home, then reseeded." },
-  { slug: "02-revegetation", title: "Mountain Home Revegetation", category: "lawn", mode: "slider",
+  { slug: "02-revegetation", title: "Mountain Home Revegetation", mode: "slider",
     text: "Rutted, torn-up ground around a new build regraded and reseeded into healthy grass." },
-  { slug: "03-deck-lawn", title: "Deck-Side Lawn Restoration", category: "lawn", mode: "slider",
+  { slug: "03-deck-lawn", title: "Deck-Side Lawn Restoration", mode: "slider",
     text: "A construction-damaged yard beside the deck brought back to a full, green lawn." },
 ];
 
@@ -113,20 +112,53 @@ const PROJECTS = [
   window.addEventListener("scroll", updateCall, { passive: true });
   show(fromHash());
 
+  // Featured video: plays (muted) only while it's on screen, with pause and sound buttons
+  const video = document.getElementById("crew-video");
+  if (video) {
+    const playBtn = document.querySelector('.vbtn[data-action="play"]');
+    const soundBtn = document.querySelector('.vbtn[data-action="sound"]');
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let userPaused = reduceMotion;
+    const syncPlay = () => {
+      playBtn.classList.toggle("is-paused", video.paused);
+      playBtn.setAttribute("aria-label", video.paused ? "Play video" : "Pause video");
+    };
+    video.addEventListener("play", syncPlay);
+    video.addEventListener("pause", syncPlay);
+    syncPlay();
+    playBtn.addEventListener("click", () => {
+      if (video.paused) { userPaused = false; video.play().catch(() => {}); }
+      else { userPaused = true; video.pause(); }
+    });
+    soundBtn.addEventListener("click", () => {
+      video.muted = !video.muted;
+      if (!video.muted && video.paused) { userPaused = false; video.play().catch(() => {}); }
+      soundBtn.classList.toggle("is-on", !video.muted);
+      soundBtn.setAttribute("aria-label", video.muted ? "Turn sound on" : "Turn sound off");
+      soundBtn.querySelector(".vbtn-label").textContent = video.muted ? "Sound on" : "Sound off";
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !userPaused) video.play().catch(() => {});
+          else if (!e.isIntersecting) video.pause();
+        });
+      }, { threshold: 0.35 }).observe(video);
+    }
+  }
+
   // Footer year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
   // Portfolio
   const grid = document.getElementById("work-grid");
-  const LABELS = { hardscape: "Hardscape", lawn: "Lawn & revegetation", grading: "Grading & drainage" };
   if (grid) {
     PROJECTS.forEach((p) => {
       const before = `assets/work/${p.slug}-before.webp`;
       const after = `assets/work/${p.slug}-after.webp`;
       const card = document.createElement("article");
       card.className = "project";
-      card.dataset.category = p.category;
 
       const frame = document.createElement("div");
       frame.className = `ba ba-${p.mode}`;
@@ -159,21 +191,12 @@ const PROJECTS = [
 
       const body = document.createElement("div");
       body.className = "project-body";
-      body.innerHTML = `<span class="project-cat">${LABELS[p.category] || ""}</span><h3>${p.title}</h3><p>${p.text}</p>`;
+      body.innerHTML = `<h3>${p.title}</h3><p>${p.text}</p>`;
 
       card.append(frame, body);
       grid.appendChild(card);
     });
 
-    document.querySelectorAll(".work-filters .chip").forEach((chip) =>
-      chip.addEventListener("click", () => {
-        document.querySelectorAll(".work-filters .chip").forEach((c) => c.classList.toggle("active", c === chip));
-        const f = chip.dataset.filter;
-        grid.querySelectorAll(".project").forEach((card) => {
-          card.hidden = f !== "all" && card.dataset.category !== f;
-        });
-      })
-    );
   }
 
   // Quote form: send people to the thank-you page on this same site after submitting

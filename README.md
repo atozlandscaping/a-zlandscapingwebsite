@@ -47,6 +47,4 @@ The form sends submissions to atozlandscapingco1@gmail.com through FormSubmit (f
 1. Put the two photos in `public/assets/work/` named `<slug>-before.webp` and `<slug>-after.webp`
    (3:4 portrait, about 600×800, works best).
 2. Add an entry to the `PROJECTS` list at the top of `public/main.js`.
-   - `mode: "slider"`: drag handle. Use when both photos are from the same spot and angle.
-   - `mode: "toggle"`: Before / After buttons. Use when the angles differ.
-   - `category`: `hardscape`, `lawn` or `grading` (matches the filter buttons).
+   - `mode: "slider"`: drag handle (used for every project).
