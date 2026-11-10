@@ -56,8 +56,7 @@ const PROJECTS = [
   const PAGES = {
     home: "A-Z Landscaping | Summit County, CO Landscaping, Tree Work & Wildfire Mitigation",
     services: "Services | A-Z Landscaping",
-    wildfire: "Wildfire Mitigation | A-Z Landscaping",
-    work: "Our Work | A-Z Landscaping",
+    work: "Portfolio | A-Z Landscaping",
     about: "Our Story | A-Z Landscaping",
     area: "Service Area | A-Z Landscaping",
     contact: "Request a Quote | A-Z Landscaping",
@@ -72,8 +71,19 @@ const PROJECTS = [
     if (call) call.classList.toggle("show", page !== "home" || window.scrollY > 520);
   };
 
-  const show = (name, scroll) => {
-    page = PAGES[name] ? name : "home";
+  // Work out which page a link points to. A link can also point to a spot
+  // inside a page (e.g. #wildfire opens Services and scrolls to that part).
+  const resolve = (name) => {
+    if (PAGES[name]) return { page: name, target: null };
+    const el = name && document.getElementById(name);
+    const view = el && el.closest("[data-view]");
+    if (view) return { page: view.dataset.view, target: el };
+    return null;
+  };
+
+  const show = (name) => {
+    const r = resolve(name) || { page: "home", target: null };
+    page = r.page;
     views.forEach((v) => { v.hidden = v.dataset.view !== page; });
     tabLinks.forEach((a) => a.classList.toggle("active", a.dataset.tab === page));
     document.title = PAGES[page];
@@ -81,7 +91,8 @@ const PROJECTS = [
     if (tab && track.scrollWidth > track.clientWidth) {
       track.scrollTo({ left: tab.offsetLeft - (track.clientWidth - tab.offsetWidth) / 2, behavior: "smooth" });
     }
-    if (scroll) window.scrollTo(0, 0);
+    if (r.target) r.target.scrollIntoView();
+    else window.scrollTo(0, 0);
     updateCall();
   };
 
@@ -92,21 +103,21 @@ const PROJECTS = [
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
     const name = link.getAttribute("href").slice(1);
-    if (!PAGES[name]) return;
+    if (!resolve(name)) return;
     e.preventDefault();
-    if (name !== page) history.pushState(null, "", "#" + name);
-    show(name, true);
+    if (location.hash !== "#" + name) history.pushState(null, "", "#" + name);
+    show(name);
   });
-  window.addEventListener("popstate", () => show(fromHash(), true));
-  window.addEventListener("hashchange", () => show(fromHash(), true));
+  window.addEventListener("popstate", () => show(fromHash()));
+  window.addEventListener("hashchange", () => show(fromHash()));
   window.addEventListener("scroll", updateCall, { passive: true });
-  show(fromHash(), true);
+  show(fromHash());
 
   // Footer year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Our Work
+  // Portfolio
   const grid = document.getElementById("work-grid");
   const LABELS = { hardscape: "Hardscape", lawn: "Lawn & revegetation", grading: "Grading & drainage" };
   if (grid) {

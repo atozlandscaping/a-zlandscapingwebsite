@@ -16,7 +16,7 @@ public/            ← everything that goes live
 
 ## Pages
 
-Each section is its own page: Home, Services, Wildfire, Our Work, About, Service Area, Contact.
+Each section is its own page: Home, Services (includes Wildfire Mitigation), Portfolio, Our Story, Service Area, Contact.
 Each one has its own link, e.g. `yoursite.com/#work` or `yoursite.com/#contact`, and the browser Back button works.
 Page titles are set in the `PAGES` list in `public/main.js`.
 

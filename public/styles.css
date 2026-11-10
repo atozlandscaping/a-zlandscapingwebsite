@@ -212,9 +212,9 @@ p { margin: 0 0 1em; }
 .tile-cta .tile-sub { color: rgba(255,255,255,.8); }
 
 /* Single-page views: give short pages some breathing room above the footer */
-main > [data-view]:not([data-view="home"]) { min-height: calc(100vh - 72px - 260px); }
+main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100vh - 72px - 260px); }
 
-/* Our Work */
+/* Portfolio */
 .work-feature { position: relative; margin: 0 0 32px; border-radius: 20px; overflow: hidden; background: var(--snow); }
 .work-feature img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center 60%; }
 .work-feature figcaption {
@@ -314,7 +314,7 @@ main > [data-view]:not([data-view="home"]) { min-height: calc(100vh - 72px - 260
 .form-note { margin: 0; text-align: center; }
 
 /* Footer */
-.site-footer { background: var(--forest-deep); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
+.site-footer { background: #1f2a1c; border-top: 4px solid var(--moss); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .footer-inner { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; }
@@ -334,6 +334,7 @@ main > [data-view]:not([data-view="home"]) { min-height: calc(100vh - 72px - 260
 }
 
 @media (max-width: 880px) {
+  .brand-text { display: inline; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
   html { scroll-padding-top: 124px; }
   .tabs { display: block; }
