@@ -78,6 +78,7 @@ const PROJECTS = [
     work: "Portfolio | A-Z Landscaping",
     about: "Our Story | A-Z Landscaping",
     area: "Service Area | A-Z Landscaping",
+    apparel: "Apparel | A-Z Landscaping",
     contact: "Request a Quote | A-Z Landscaping",
   };
   const views = document.querySelectorAll("[data-view]");
@@ -227,7 +228,7 @@ const PROJECTS = [
 
   // Quote form: send people to the thank-you page on this same site after submitting
   // Combine all ticked services into one line so the email lists every one of them
-  const form = document.querySelector(".quote-form");
+  const form = document.getElementById("quote-form");
   if (form) {
     form.addEventListener("submit", () => {
       const boxes = form.querySelectorAll('input[type="checkbox"][name="services"]');
@@ -237,6 +238,7 @@ const PROJECTS = [
     });
   }
 
-  const next = document.querySelector('.quote-form input[name="_next"]');
-  if (next) next.value = new URL("thanks.html", window.location.href).href;
+  document.querySelectorAll('form input[name="_next"]').forEach((next) => {
+    next.value = new URL("thanks.html", window.location.href).href;
+  });
 })();

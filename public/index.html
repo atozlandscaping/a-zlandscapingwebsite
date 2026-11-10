@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261109x">
+  <link rel="stylesheet" href="styles.css?v=20261109y">
 
   <script type="application/ld+json">
   {
@@ -49,6 +49,7 @@
         <a href="#work" data-tab="work">Portfolio</a>
         <a href="#about" data-tab="about">Our Story</a>
         <a href="#area" data-tab="area">Service Area</a>
+        <a href="#apparel" data-tab="apparel">Apparel</a>
         <a href="#contact" class="nav-cta">Get a Quote</a>
       </nav>
       <a class="header-phone" href="tel:+19703334469">(970) 333-4469</a>
@@ -63,6 +64,7 @@
         <a href="#work" data-tab="work">Portfolio</a>
         <a href="#about" data-tab="about">Our Story</a>
         <a href="#area" data-tab="area">Service Area</a>
+        <a href="#apparel" data-tab="apparel">Apparel</a>
         <a href="#contact" data-tab="contact">Contact</a>
       </div>
     </nav>
@@ -361,6 +363,66 @@
       </div>
     </section>
 
+    <!-- APPAREL -->
+    <section data-view="apparel" class="section apparel" id="apparel">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Apparel</p>
+          <h1 class="page-title">A-Z Gear</h1>
+          <p>Rep the crew. Our custom logo tees are available to order. Send us your size and we'll text you to confirm payment and pickup or delivery in Summit County.</p>
+        </div>
+
+        <div class="apparel-inner">
+          <div class="product">
+            <div class="product-photo">
+              <svg class="tee" viewBox="0 0 400 420" role="img" aria-label="A-Z Landscaping logo t-shirt">
+                <path class="tee-body" d="M140 20 C155 42 245 42 260 20 L345 52 L392 128 L330 160 L310 132 L310 400 L90 400 L90 132 L70 160 L8 128 L55 52 Z"/>
+                <path class="tee-collar" d="M140 20 C155 42 245 42 260 20"/>
+                <image href="assets/logo-mark.png" x="125" y="120" width="150" height="62"/>
+                <text x="200" y="205" text-anchor="middle" class="tee-word">LANDSCAPING</text>
+              </svg>
+            </div>
+            <div class="product-info">
+              <h2 class="product-title">A-Z Landscaping Logo Tee</h2>
+              <p class="product-sub">Our mountain logo on the front. Photos and pricing coming soon.</p>
+              <ul class="product-sizes" aria-label="Available sizes">
+                <li>S</li><li>M</li><li>L</li><li>XL</li><li>XXL</li>
+              </ul>
+            </div>
+          </div>
+
+          <form class="quote-form apparel-form" id="apparel-form" action="https://formsubmit.co/atozlandscapingco1@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New apparel order from the A-Z Landscaping website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <h2 class="form-title">Order a shirt</h2>
+            <div class="row">
+              <label>Name<input type="text" name="name" required autocomplete="name"></label>
+              <label>Phone<input type="tel" name="phone" required autocomplete="tel"></label>
+            </div>
+            <label>Email<input type="email" name="email" autocomplete="email"></label>
+            <div class="row">
+              <label>Size
+                <select name="size" required>
+                  <option value="">Choose one</option>
+                  <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+              </label>
+              <label>Quantity
+                <select name="quantity" required>
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+                </select>
+              </label>
+            </div>
+            <label>Anything else?<textarea name="message" rows="3" placeholder="Mixed sizes, color preference, pickup or delivery…"></textarea></label>
+            <button class="btn btn-primary btn-block" type="submit">Send Order Request</button>
+            <p class="small form-note">No payment now. We'll text you to confirm the total and how to pay.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section data-view="contact" class="section contact" id="contact">
       <div class="wrap contact-inner">
@@ -378,7 +440,7 @@
           </a>
         </div>
 
-        <form class="quote-form" action="https://formsubmit.co/atozlandscapingco1@gmail.com" method="POST">
+        <form class="quote-form" id="quote-form" action="https://formsubmit.co/atozlandscapingco1@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New quote request from the A-Z Landscaping website">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="">
@@ -456,6 +518,6 @@
     <a class="mobile-call" href="tel:+19703334469">Call or Text (970) 333-4469</a>
   </aside>
 
-  <script src="main.js?v=20261109x"></script>
+  <script src="main.js?v=20261109y"></script>
 </body>
 </html>
