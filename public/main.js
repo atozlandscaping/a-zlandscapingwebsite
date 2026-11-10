@@ -19,13 +19,13 @@ const PROJECTS = [
     text: "A flagstone path and rock beds winding through the aspens along the house." },
   { slug: "06-deck-walkway", title: "Deck Entry Walkway", category: "hardscape", mode: "slider",
     text: "Gravel around the deck and a curving flagstone walkway leading to the entry stairs." },
-  { slug: "05-flagstone-path", title: "Flagstone Path & Gravel Border", category: "hardscape", mode: "toggle",
+  { slug: "05-flagstone-path", title: "Flagstone Path & Gravel Border", category: "hardscape", mode: "slider",
     text: "Overgrown grass and debris replaced with a gravel border and flagstone path along the house." },
-  { slug: "04-grading-swale", title: "Grading & Drainage Swale", category: "grading", mode: "toggle",
+  { slug: "04-grading-swale", title: "Grading & Drainage Swale", category: "grading", mode: "slider",
     text: "The lot regraded with a gravel swale to carry water away from the home, then reseeded." },
-  { slug: "02-revegetation", title: "Mountain Home Revegetation", category: "lawn", mode: "toggle",
+  { slug: "02-revegetation", title: "Mountain Home Revegetation", category: "lawn", mode: "slider",
     text: "Rutted, torn-up ground around a new build regraded and reseeded into healthy grass." },
-  { slug: "03-deck-lawn", title: "Deck-Side Lawn Restoration", category: "lawn", mode: "toggle",
+  { slug: "03-deck-lawn", title: "Deck-Side Lawn Restoration", category: "lawn", mode: "slider",
     text: "A construction-damaged yard beside the deck brought back to a full, green lawn." },
 ];
 
@@ -55,6 +55,31 @@ const PROJECTS = [
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
+
+  // Highlight the tab / menu link for the section currently on screen
+  const tabLinks = document.querySelectorAll("[data-tab]");
+  const sectionIds = ["top", "services", "wildfire", "work", "about", "area", "contact"];
+  const track = document.querySelector(".tabs-track");
+  let current = "";
+  const spy = () => {
+    const line = window.scrollY + window.innerHeight * 0.35;
+    let active = "top";
+    sectionIds.forEach((id) => {
+      const el = id === "top" ? null : document.getElementById(id);
+      if (el && el.offsetTop <= line) active = id;
+    });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) active = "contact";
+    if (active === current) return;
+    current = active;
+    tabLinks.forEach((a) => a.classList.toggle("active", a.dataset.tab === active));
+    const tab = track && track.querySelector(`[data-tab="${active}"]`);
+    if (tab && track.scrollWidth > track.clientWidth) {
+      track.scrollTo({ left: tab.offsetLeft - (track.clientWidth - tab.offsetWidth) / 2, behavior: "smooth" });
+    }
+  };
+  window.addEventListener("scroll", spy, { passive: true });
+  window.addEventListener("resize", spy);
+  spy();
 
   // Footer year
   const year = document.getElementById("year");
