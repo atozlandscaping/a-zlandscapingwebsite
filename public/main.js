@@ -17,6 +17,8 @@ const PROJECTS = [
     text: "An overgrown bed by the entry stairs cut back, weeded and finished with fresh mulch inside the rock border." },
   { slug: "13-shrub-pruning", title: "Shrub Pruning & Bed Cleanup", mode: "slider",
     text: "Overgrown shrubs along the patio pruned into shape, beds weeded and fresh mulch laid." },
+  { slug: "17-river-rock-border", title: "River Rock Foundation Border", mode: "slider",
+    text: "Weeds and bare dirt along a log home's foundation replaced with a river rock border: a clean, non-burnable buffer right against the house." },
   { slug: "14-patio-planters", title: "Patio Planter Design", mode: "photo",
     alt: "Long black planter filled with dahlias, red and yellow flowers and silver dusty miller beside an outdoor dining patio",
     text: "Layered summer planters, from dahlias to silvery dusty miller, lining an outdoor dining patio." },
