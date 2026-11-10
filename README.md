@@ -32,6 +32,11 @@ Page titles are set in the `PAGES` list in `public/main.js`.
 Changes are made with Claude and pushed to GitHub. In Replit, open the **Git** pane → **Pull**, then **Redeploy**.
 Avoid editing the same files in Replit at the same time, or the two copies can conflict.
 
+## Cache busting
+
+`index.html` and `thanks.html` load `styles.css?v=...` and `main.js?v=...`.
+Bump the `v=` value whenever those files change so browsers (and the Replit preview) load the new version.
+
 ## Quote form
 
 The form sends submissions to atozlandscapingco1@gmail.com through FormSubmit (formsubmit.co, free).
