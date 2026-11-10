@@ -111,7 +111,7 @@ p { margin: 0 0 1em; }
   position: relative; overflow: hidden; color: #fff;
   background:
     linear-gradient(90deg, rgba(31,42,28,.94) 0%, rgba(31,42,28,.82) 38%, rgba(31,42,28,.35) 70%, rgba(31,42,28,.15) 100%),
-    url("assets/hero-home.webp") 70% 80% / cover no-repeat,
+    url("assets/hero-home.webp") center 85% / cover no-repeat,
     var(--forest-deep);
   padding: 96px 0 200px;
 }
@@ -395,8 +395,8 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
   .hero {
     padding: 64px 0 170px;
     background:
-      linear-gradient(180deg, rgba(31,42,28,.9) 0%, rgba(31,42,28,.78) 60%, rgba(31,42,28,.55) 100%),
-      url("assets/hero-home-sm.webp") 60% 50% / cover no-repeat,
+      linear-gradient(180deg, rgba(31,42,28,.82) 0%, rgba(31,42,28,.66) 55%, rgba(31,42,28,.4) 100%),
+      url("assets/hero-home-sm.webp") center 55% / cover no-repeat,
       var(--forest-deep);
   }
   .ridge { height: 160px; }
