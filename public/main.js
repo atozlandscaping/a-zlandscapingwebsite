@@ -58,7 +58,7 @@ const PROJECTS = [
     services: "Services | A-Z Landscaping",
     wildfire: "Wildfire Mitigation | A-Z Landscaping",
     work: "Our Work | A-Z Landscaping",
-    about: "About Us | A-Z Landscaping",
+    about: "Our Story | A-Z Landscaping",
     area: "Service Area | A-Z Landscaping",
     contact: "Request a Quote | A-Z Landscaping",
   };
