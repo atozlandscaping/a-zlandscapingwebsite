@@ -173,6 +173,16 @@ p { margin: 0 0 1em; }
 .wildfire h2, .wildfire h3 { color: #fff; }
 .wildfire .eyebrow { color: var(--moss-light); }
 .wildfire-copy p { font-size: 1.05rem; margin-bottom: 1.8em; }
+.resource-link {
+  display: flex; flex-direction: column; gap: 2px; margin-top: 28px; max-width: 460px;
+  padding: 16px 20px; border-radius: var(--radius); text-decoration: none;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-left: 4px solid var(--moss-light);
+  transition: background .15s ease, border-color .15s ease;
+}
+.resource-link:hover { background: rgba(255,255,255,.11); border-color: rgba(255,255,255,.3); border-left-color: var(--moss-light); }
+.resource-link strong { color: #fff; font-size: 1.02rem; }
+.resource-label { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--moss-light); }
+.resource-sub { font-size: .86rem; color: rgba(255,255,255,.7); }
 .zones { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .zones li { display: flex; gap: 20px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 22px 24px; }
 .zone-num { font-family: var(--display); font-size: 1.6rem; color: var(--moss-light); line-height: 1; padding-top: 2px; }
