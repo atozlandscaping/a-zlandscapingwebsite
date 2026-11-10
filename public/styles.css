@@ -287,6 +287,8 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 .about-logo { background: #fff; border-radius: 20px; padding: 40px; box-shadow: var(--shadow); }
 .about p { color: var(--muted); font-size: 1.03rem; }
 .about strong { color: var(--ink); }
+.about-contact { color: var(--forest-deep) !important; font-weight: 600; margin-top: 1.4em; }
+.about-contact a { color: var(--forest); white-space: nowrap; }
 .about-sign { font-family: var(--display); font-size: 1.2rem; color: var(--forest); margin-top: 1.4em; }
 
 /* Area */
