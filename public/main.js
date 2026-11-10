@@ -202,6 +202,17 @@ const PROJECTS = [
   }
 
   // Quote form: send people to the thank-you page on this same site after submitting
+  // Combine all ticked services into one line so the email lists every one of them
+  const form = document.querySelector(".quote-form");
+  if (form) {
+    form.addEventListener("submit", () => {
+      const boxes = form.querySelectorAll('input[type="checkbox"][name="services"]');
+      const picked = [...boxes].filter((b) => b.checked).map((b) => b.value);
+      form.querySelector('input[name="Services requested"]').value = picked.join(", ") || "Not specified";
+      boxes.forEach((b) => b.removeAttribute("name"));
+    });
+  }
+
   const next = document.querySelector('.quote-form input[name="_next"]');
   if (next) next.value = new URL("thanks.html", window.location.href).href;
 })();
