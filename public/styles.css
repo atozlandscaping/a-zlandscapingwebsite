@@ -110,10 +110,18 @@ p { margin: 0 0 1em; }
 .hero {
   position: relative; overflow: hidden; color: #fff;
   background:
-    linear-gradient(90deg, rgba(31,42,28,.94) 0%, rgba(31,42,28,.82) 38%, rgba(31,42,28,.35) 70%, rgba(31,42,28,.15) 100%),
-    url("assets/hero-home.webp") center 85% / cover no-repeat,
+    url("assets/hero-home.webp") right center / auto 100% no-repeat,
     var(--forest-deep);
   padding: 96px 0 200px;
+}
+/* Tablet widths: the photo reaches behind the text, so darken its left side */
+@media (min-width: 641px) and (max-width: 1240px) {
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(44,59,40,.95) 0%, rgba(44,59,40,.88) 45%, rgba(44,59,40,.4) 75%, rgba(44,59,40,0) 100%),
+      url("assets/hero-home.webp") right center / auto 100% no-repeat,
+      var(--forest-deep);
+  }
 }
 /* Only the white curve at the bottom of the hero is kept now that the hero is a real photo */
 .ridge .r1, .ridge .r2, .ridge .trees { display: none; }
@@ -396,7 +404,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
     padding: 64px 0 170px;
     background:
       linear-gradient(180deg, rgba(31,42,28,.82) 0%, rgba(31,42,28,.66) 55%, rgba(31,42,28,.4) 100%),
-      url("assets/hero-home-sm.webp") center 55% / cover no-repeat,
+      url("assets/hero-home-sm.webp") center 60% / cover no-repeat,
       var(--forest-deep);
   }
   .ridge { height: 160px; }
