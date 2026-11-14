@@ -257,6 +257,8 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .project[hidden] { display: none; }
 .project-body { padding: 16px 4px 0; }
+.project-loc { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--moss); }
+.project-loc svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linejoin: round; }
 .project h3 { font-size: 1.25rem; margin: 4px 0 6px; }
 .project p { color: var(--muted); font-size: .93rem; margin: 0; }
 
