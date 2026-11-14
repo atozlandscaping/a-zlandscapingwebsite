@@ -11,7 +11,7 @@
 // ----------------------------------------------------------
 const PROJECTS = [
   { slug: "09-gazebo-path", location: "Silverthorne, CO", title: "Gazebo Path Replacement", mode: "slider",
-    text: "An old brick path replaced with natural flagstone set in a river rock border." },
+    text: "An old paver path replaced with natural flagstone set in a river rock border." },
   { slug: "10-flagstone-patio", location: "Dillon, CO", title: "Under-Deck Flagstone Patio", mode: "slider",
     text: "Gravel and an old fence gate cleared out and replaced with a flagstone patio running from the door under the deck." },
   { slug: "01-stone-stairs", location: "Silverthorne, CO", title: "Natural Stone Hillside Stairs", mode: "slider",
