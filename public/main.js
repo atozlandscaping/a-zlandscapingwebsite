@@ -10,16 +10,16 @@
 //         "photo"  = a single finished photo, saved as <slug>.webp
 // ----------------------------------------------------------
 const PROJECTS = [
-  { slug: "08-stone-wall-walk", location: "Silverthorne, CO", title: "Stone Wall Walkway Rebuild", mode: "slider",
-    text: "Weedy, uneven pavers pulled up and relaid as a tight, level flagstone walkway." },
+  { slug: "09-gazebo-path", location: "Silverthorne, CO", title: "Gazebo Path Replacement", mode: "slider",
+    text: "An old brick path replaced with natural flagstone set in a river rock border." },
   { slug: "10-flagstone-patio", location: "Dillon, CO", title: "Under-Deck Flagstone Patio", mode: "slider",
     text: "Gravel and an old fence gate cleared out and replaced with a flagstone patio running from the door under the deck." },
   { slug: "18-fire-pit-patio", location: "Breckenridge, CO", title: "Fire Pit Patio Boulder Border", mode: "slider",
     text: "Overgrown grass and weeds cleared and an old stump cut down around a fire pit patio, then edged with a natural boulder border." },
   { slug: "01-stone-stairs", location: "Silverthorne, CO", title: "Natural Stone Hillside Stairs", mode: "slider",
     text: "A worn timber staircase replaced with sandstone steps set into the hillside, plus fresh soil and plantings." },
-  { slug: "09-gazebo-path", location: "Silverthorne, CO", title: "Gazebo Path Replacement", mode: "slider",
-    text: "An old brick path replaced with natural flagstone set in a river rock border." },
+  { slug: "08-stone-wall-walk", location: "Silverthorne, CO", title: "Stone Wall Walkway Rebuild", mode: "slider",
+    text: "Weedy, uneven pavers pulled up and relaid as a tight, level flagstone walkway." },
   { slug: "17-river-rock-border", location: "Silverthorne, CO", title: "River Rock Foundation Border", mode: "slider",
     text: "Weeds and bare dirt along a log home's foundation replaced with a river rock border: a clean, non-burnable buffer right against the house." },
   { slug: "12-garden-bed-refresh", location: "Silverthorne, CO", title: "Garden Bed Refresh", mode: "slider",
