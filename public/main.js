@@ -9,6 +9,8 @@
 //         "photo"  = a single finished photo, saved as <slug>.webp
 // ----------------------------------------------------------
 const PROJECTS = [
+  { slug: "18-fire-pit-patio", title: "Fire Pit Patio Boulder Border", mode: "slider",
+    text: "Overgrown grass and weeds cleared and an old stump cut down around a fire pit patio, then edged with a natural boulder border." },
   { slug: "10-flagstone-patio", title: "Under-Deck Flagstone Patio", mode: "slider",
     text: "Gravel and an old fence gate cleared out and replaced with a flagstone patio running from the door under the deck." },
   { slug: "11-brush-pile", title: "Brush Pile Removal", mode: "slider",
