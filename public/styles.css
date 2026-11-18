@@ -6,7 +6,8 @@
   /* Brand palette (from the marketing studio)
      Spruce Green #294c3b · Aspen Leaf #77927a · Limestone #f4f2e9 · Lake Blue #2f6b88 · Deep Slate #283a43 */
   --forest: #294c3b;      /* Spruce Green: buttons, brand color, green sections */
-  --forest-deep: #283a43; /* Deep Slate: headings and dark sections */
+  --forest-deep: #1f3b2e; /* deep Spruce Green: headings and dark sections */
+  --slate: #283a43;       /* Deep Slate */
   --moss: #2f6b88;        /* Lake Blue: small accent text, links, highlights */
   --moss-light: #b3c8b5;  /* light Aspen Leaf tint: accent text on dark backgrounds */
   --aspen: #77927a;       /* Aspen Leaf: decorative accents only (too light for small text) */
@@ -51,7 +52,7 @@ p { margin: 0 0 1em; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--forest); color: #fff; padding: 8px 14px; border-radius: 8px; z-index: 100; }
 .skip:focus { left: 8px; }
-.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--moss); margin-bottom: .75em; }
+.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--forest); margin-bottom: .75em; }
 .small { font-size: .85rem; color: var(--muted); }
 
 /* ---------- Buttons ---------- */
@@ -121,7 +122,7 @@ p { margin: 0 0 1em; }
 @media (min-width: 641px) and (max-width: 1240px) {
   .hero {
     background:
-      linear-gradient(90deg, rgba(40,58,67,.95) 0%, rgba(40,58,67,.88) 45%, rgba(40,58,67,.4) 75%, rgba(40,58,67,0) 100%),
+      linear-gradient(90deg, rgba(31,59,46,.95) 0%, rgba(31,59,46,.88) 45%, rgba(31,59,46,.4) 75%, rgba(31,59,46,0) 100%),
       url("assets/hero-home.webp") right center / auto 100% no-repeat,
       var(--forest-deep);
   }
@@ -221,7 +222,7 @@ p { margin: 0 0 1em; }
 .tile-title { font-family: var(--display); font-size: 1.5rem; color: var(--forest-deep); line-height: 1.15; }
 .tile-sub { color: var(--muted); font-size: .93rem; flex: 1; }
 .tile-go { font-weight: 700; font-size: .9rem; color: var(--forest); }
-.tile-photo { background: linear-gradient(180deg, rgba(40,58,67,.72), rgba(40,58,67,.88)), var(--img) center / cover; border: 0; }
+.tile-photo { background: linear-gradient(180deg, rgba(31,59,46,.72), rgba(31,59,46,.88)), var(--img) center / cover; border: 0; }
 .tile-photo .tile-title, .tile-photo .tile-go { color: #fff; }
 .tile-photo .tile-sub { color: rgba(255,255,255,.85); }
 .tile-cta { background: var(--forest); border-color: var(--forest); }
@@ -361,7 +362,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 .form-note { margin: 0; text-align: center; }
 
 /* Footer */
-.site-footer { background: #1f2d34; border-top: 4px solid var(--aspen); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
+.site-footer { background: #1a3227; border-top: 4px solid var(--aspen); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer p a, .footer-bottom a { display: inline-block; padding: 8px 0; }
@@ -417,7 +418,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
   .hero {
     padding: 64px 0 170px;
     background:
-      linear-gradient(180deg, rgba(40,58,67,.82) 0%, rgba(40,58,67,.66) 55%, rgba(40,58,67,.4) 100%),
+      linear-gradient(180deg, rgba(31,59,46,.82) 0%, rgba(31,59,46,.66) 55%, rgba(31,59,46,.4) 100%),
       url("assets/hero-home-sm.webp") center 60% / cover no-repeat,
       var(--forest-deep);
   }
