@@ -3,23 +3,26 @@
    Brand colors are pulled from the company logo.
    ========================================================== */
 :root {
-  --forest: #385234;      /* main logo green */
-  --forest-deep: #2c3b28; /* darkest logo green */
-  --moss: #637447;        /* lighter green from the A & Z letters */
-  --moss-light: #8fa36a;
-  --stone: #8b8875;       /* mountain rock */
-  --mist: #a8a38f;
-  --snow: #f6f5f0;
+  /* Brand palette (from the marketing studio)
+     Spruce Green #294c3b · Aspen Leaf #77927a · Limestone #f4f2e9 · Lake Blue #2f6b88 · Deep Slate #283a43 */
+  --forest: #294c3b;      /* Spruce Green: buttons, brand color, green sections */
+  --forest-deep: #283a43; /* Deep Slate: headings and dark sections */
+  --moss: #2f6b88;        /* Lake Blue: small accent text, links, highlights */
+  --moss-light: #b3c8b5;  /* light Aspen Leaf tint: accent text on dark backgrounds */
+  --aspen: #77927a;       /* Aspen Leaf: decorative accents only (too light for small text) */
+  --stone: #77927a;
+  --mist: #b3c8b5;
+  --snow: #f4f2e9;        /* Limestone: light section backgrounds */
   --paper: #ffffff;
-  --ink: #1f2a1c;
-  --muted: #5b6455;
-  --line: #e3e2d9;
+  --ink: #283a43;         /* Deep Slate body text */
+  --muted: #556570;
+  --line: #e2e0d5;
 
   --display: "Marcellus", Georgia, serif;
   --body: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --radius: 14px;
-  --shadow: 0 1px 2px rgba(31, 42, 28, .06), 0 8px 24px rgba(31, 42, 28, .08);
+  --shadow: 0 1px 2px rgba(40, 58, 67, .06), 0 8px 24px rgba(40, 58, 67, .10);
   --wrap: 1160px;
 }
 
@@ -118,7 +121,7 @@ p { margin: 0 0 1em; }
 @media (min-width: 641px) and (max-width: 1240px) {
   .hero {
     background:
-      linear-gradient(90deg, rgba(44,59,40,.95) 0%, rgba(44,59,40,.88) 45%, rgba(44,59,40,.4) 75%, rgba(44,59,40,0) 100%),
+      linear-gradient(90deg, rgba(40,58,67,.95) 0%, rgba(40,58,67,.88) 45%, rgba(40,58,67,.4) 75%, rgba(40,58,67,0) 100%),
       url("assets/hero-home.webp") right center / auto 100% no-repeat,
       var(--forest-deep);
   }
@@ -175,15 +178,15 @@ p { margin: 0 0 1em; }
 .beyond .beyond-title { font-size: 1.6rem; }
 .beyond-copy p:last-child { color: var(--muted); margin: 0; }
 .beyond-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.beyond-list li { background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; border-left: 4px solid var(--moss); }
+.beyond-list li { background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; border-left: 4px solid var(--aspen); }
 .beyond-list strong { color: var(--forest-deep); }
 .beyond-list span { color: var(--muted); font-size: .88rem; }
 
 /* Wildfire */
-.wildfire { background: var(--forest-deep); color: rgba(255,255,255,.86); position: relative; overflow: hidden; }
+.wildfire { background: var(--forest); color: rgba(255,255,255,.86); position: relative; overflow: hidden; }
 .wildfire::before {
   content: ""; position: absolute; inset: auto -10% -40% auto; width: 620px; height: 620px;
-  background: radial-gradient(circle, rgba(99,116,71,.5), transparent 65%); pointer-events: none;
+  background: radial-gradient(circle, rgba(119,146,122,.45), transparent 65%); pointer-events: none;
 }
 .wildfire-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; position: relative; }
 .wildfire h2, .wildfire h3 { color: #fff; }
@@ -218,7 +221,7 @@ p { margin: 0 0 1em; }
 .tile-title { font-family: var(--display); font-size: 1.5rem; color: var(--forest-deep); line-height: 1.15; }
 .tile-sub { color: var(--muted); font-size: .93rem; flex: 1; }
 .tile-go { font-weight: 700; font-size: .9rem; color: var(--forest); }
-.tile-photo { background: linear-gradient(180deg, rgba(31,42,28,.72), rgba(31,42,28,.88)), var(--img) center / cover; border: 0; }
+.tile-photo { background: linear-gradient(180deg, rgba(40,58,67,.72), rgba(40,58,67,.88)), var(--img) center / cover; border: 0; }
 .tile-photo .tile-title, .tile-photo .tile-go { color: #fff; }
 .tile-photo .tile-sub { color: rgba(255,255,255,.85); }
 .tile-cta { background: var(--forest); border-color: var(--forest); }
@@ -268,8 +271,8 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
   position: absolute; top: 12px; z-index: 3; font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   padding: 6px 10px; border-radius: 6px; color: #fff; pointer-events: none;
 }
-.ba-tag-before { left: 12px; background: rgba(139,136,117,.92); }
-.ba-tag-after { right: 12px; background: rgba(56,82,52,.92); }
+.ba-tag-before { left: 12px; background: rgba(40,58,67,.88); }
+.ba-tag-after { right: 12px; background: rgba(41,76,59,.94); }
 
 /* Slider: before photo is revealed on the left of the handle */
 .ba-slider .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
@@ -321,7 +324,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 .apparel-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
 .product { background: var(--snow); border-radius: 20px; overflow: hidden; }
 .product-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-.product-photos figure { position: relative; margin: 0; border-radius: 14px; overflow: hidden; background: #e9e7df; }
+.product-photos figure { position: relative; margin: 0; border-radius: 14px; overflow: hidden; background: #ebe8dc; }
 .product-photos img { width: 100%; aspect-ratio: 720 / 1070; object-fit: cover; display: block; }
 .product-photos figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(255,255,255,.94); color: var(--forest-deep); font-weight: 700; font-size: .78rem; padding: 5px 10px; border-radius: 999px; }
 .product-info { padding: 24px 28px 28px; }
@@ -346,7 +349,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
   border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; background: #fff; width: 100%;
   transition: border-color .15s, box-shadow .15s;
 }
-.quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { outline: none; border-color: var(--moss); box-shadow: 0 0 0 3px rgba(99,116,71,.18); }
+.quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { outline: none; border-color: var(--moss); box-shadow: 0 0 0 3px rgba(47,107,136,.2); }
 .quote-form textarea { resize: vertical; }
 .quote-form fieldset { border: 0; padding: 0; margin: 0; }
 .quote-form legend { font-weight: 600; font-size: .88rem; color: var(--forest-deep); margin-bottom: 10px; }
@@ -358,7 +361,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
 .form-note { margin: 0; text-align: center; }
 
 /* Footer */
-.site-footer { background: #1f2a1c; border-top: 4px solid var(--moss); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
+.site-footer { background: #1f2d34; border-top: 4px solid var(--aspen); color: rgba(255,255,255,.75); padding: 64px 0 28px; font-size: .93rem; }
 .site-footer a { color: #fff; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer p a, .footer-bottom a { display: inline-block; padding: 8px 0; }
@@ -414,7 +417,7 @@ main > [data-view]:not([data-view="home"]):not(#services) { min-height: calc(100
   .hero {
     padding: 64px 0 170px;
     background:
-      linear-gradient(180deg, rgba(31,42,28,.82) 0%, rgba(31,42,28,.66) 55%, rgba(31,42,28,.4) 100%),
+      linear-gradient(180deg, rgba(40,58,67,.82) 0%, rgba(40,58,67,.66) 55%, rgba(40,58,67,.4) 100%),
       url("assets/hero-home-sm.webp") center 60% / cover no-repeat,
       var(--forest-deep);
   }
